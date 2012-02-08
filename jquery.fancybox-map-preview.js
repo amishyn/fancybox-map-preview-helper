@@ -127,6 +127,7 @@
 			this.wrap = null;
 			this.content = null;
 			this.width = 0;
+      this.locations = [];
 		}
 	}
 
