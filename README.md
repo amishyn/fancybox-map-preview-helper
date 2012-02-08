@@ -21,7 +21,8 @@ And init gallery with:
             icon: 'some url',
             current_icon: 'some url',
             beforeMapLoad: function(map_preview){alert('loaded'},
-            afterMapAfter: null
+            afterMapAfter: null,
+            map_zoom: 15
         }
     });
  
