@@ -54,7 +54,7 @@
         this.icon = opts.icon;
         this.current_icon = opts.current_icon;
         this.afterMapLoad = opts.afterMapLoad;
-        this.beforeMapUnload = opts.afterMapUnload;
+        this.beforeMapUnload = opts.beforeMapUnload;
         map_zoom = opts.map_zoom || 14;
 
 			//Build content structure
@@ -118,7 +118,7 @@
 		},
 
 		beforeClose: function () {
-      if (this.beforeMapLoad)
+      if (this.beforeMapUnload)
         this.beforeMapUnload();
 			if (this.wrap) {
 				this.wrap.remove();
