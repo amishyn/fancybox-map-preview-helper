@@ -1,0 +1,17 @@
+#fancybox-map-preview {
+	position:fixed;
+	left: 0px;
+	width: 100%;
+	overflow: hidden;
+	z-index: 1004;
+  color: #fff;
+}
+
+#fancybox-map-preview.bottom {
+	bottom: 2px;
+}
+
+#fancybox-map-preview.top {
+	top: 2px;
+}
+
