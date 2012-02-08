@@ -11,7 +11,8 @@
  *             icon: 'some url',
  *             current_icon: 'some url',
  *             beforeMapLoad: null,
- *             afterMapAfter: null
+ *             afterMapAfter: null,
+ *             map_zoom: 10
  *         }
  *     });
  * 
@@ -54,6 +55,7 @@
         this.current_icon = opts.current_icon;
         this.afterMapLoad = opts.afterMapLoad;
         this.beforeMapUnload = opts.afterMapUnload;
+        map_zoom = opts.map_zoom || 14;
 
 			//Build content structure
 			content = '<div><div id="map_canvas_popup" style="width: '+blockWidth+'px; height: '+blockHeight+'px"></div></div>';
@@ -62,7 +64,7 @@
 
 			jQuery('#map_canvas_popup').show();
 			var myOptions = {
-				zoom: 13,
+				zoom: map_zoom,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 
@@ -89,7 +91,8 @@
 		update: function (opts) {
       if (this.locations.length >= 1){
         for(var i =0; i< this.locations.length; i++)
-          this.locations[i].setOptions({icon: this.current_icon});
+          if (F.current.index != i)
+            this.locations[i].setOptions({icon: this.icon});
       }
 		},
 
@@ -107,7 +110,7 @@
 
       var marker = this.locations[F.current.index];
       this.map_popup.setOptions({center: marker.position});
-      marker.setOptions({icon: this.icon});
+      marker.setOptions({icon: this.current_icon});
 		},
 
 		onUpdate: function () {
